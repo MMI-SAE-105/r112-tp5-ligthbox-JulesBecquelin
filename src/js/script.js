@@ -17,4 +17,23 @@ function openLightbox(event) {
 }
 
 
+function closeLightbox() {
+  lightbox.close();
+  lightboxImage.src = ''; 
+}
 
+
+images.forEach(img => img.addEventListener('click', openLightbox));
+
+
+lightbox.addEventListener('click', event => {
+  if (event.target === lightbox) {
+    closeLightbox();
+  }
+});
+
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && lightbox.open) {
+    closeLightbox();
+  }
+});
