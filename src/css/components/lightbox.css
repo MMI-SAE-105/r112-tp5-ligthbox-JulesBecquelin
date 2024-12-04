@@ -1,3 +1,41 @@
-/**
-* Lightbox
-*/
+
+dialog#lightbox {
+    border: none;
+    padding: 0;
+    background: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80vw; 
+    height: 80vh; 
+    opacity: 0;
+    transform: scale(0.5);
+    transition: opacity 2s ease, transform 2s ease;
+    border-radius: 12px; 
+  }
+  
+  dialog#lightbox[open] {
+    opacity: 1;
+    transform: scale(1);
+    transition: transform 2s;
+  }
+  
+  dialog#lightbox img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: contain; 
+    border-radius: 8px;
+    transition: opacity 2s ease, transform 2s ease;
+    opacity: 0;
+    transform: scale(1);
+  }
+  
+  dialog#lightbox img.loaded {
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  dialog#lightbox::backdrop {
+    background: rgba(186, 139, 74, 0.8);
+  }
+  
